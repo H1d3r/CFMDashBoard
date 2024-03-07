@@ -122,7 +122,7 @@ object ClashStatus {
         if (isCmdRunning) return
         isCmdRunning = true
         Shell.cmd(
-            "${ClashConfig.scriptsPath}/clash.service -s && ${ClashConfig.scriptsPath}/clash.iptables -s"
+            "${ClashConfig.scriptsPath}/clash.service -s && ${ClashConfig.scriptsPath}/clash.tproxy -s && rm -f /data/adb/modules/Clash4Magisk/disable >/dev/null"
         ).submit{
             isCmdRunning = false
         }
@@ -133,7 +133,8 @@ object ClashStatus {
         isCmdRunning = true
         Shell.cmd(
             "${ClashConfig.scriptsPath}/clash.service -k",
-            "${ClashConfig.scriptsPath}/clash.iptables -k"
+            "${ClashConfig.scriptsPath}/clash.tproxy -k",
+            "touch /data/adb/modules/Clash4Magisk/disable"
         ).submit{
             isCmdRunning = false
         }

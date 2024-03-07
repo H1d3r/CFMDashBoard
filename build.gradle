@@ -2,11 +2,19 @@
 buildscript {
     ext.kotlin_version = "1.7.20"
     repositories {
+        maven{ allowInsecureProtocol  true 
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { allowInsecureProtocol  true 
+        url "http://oss.sonatype.org/content/repositories/snapshots" }
+        maven {
+            url 'https://mvnrepository.com/artifact/com.android.tools.build/gradle'
+        }
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.2.2'
+        classpath 'com.android.tools.build:gradle:7.4.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -16,6 +24,10 @@ buildscript {
 
 allprojects {
     repositories {
+        maven{ allowInsecureProtocol  true 
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+        maven { allowInsecureProtocol  true 
+        url "http://oss.sonatype.org/content/repositories/snapshots" }
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }

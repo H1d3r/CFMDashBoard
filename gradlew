@@ -63,9 +63,9 @@ case "`uname`" in
     nonstop=true
     ;;
 esac
-
+export ANDROID_DAILY_OVERRIDE="f9a73847663fc0c0d0711c89205b8ecc72e00b76"
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
-
+JAVA_HOME="/Library/Java/JavaVirtualMachines/microsoft-11.jdk/Contents/Home"
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then

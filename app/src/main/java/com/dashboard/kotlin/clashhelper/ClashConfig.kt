@@ -27,18 +27,18 @@ object ClashConfig {
     }
 
     val dataPath
-        get() = "/data/clash"
+        get() = "/data/adb/clash"
 
     val corePath by lazy {
         runCatching {
             if (paths[0] == "") throw Error() else paths[0]
-        }.getOrDefault("/data/adb/modules/Clash_For_Magisk/system/bin/clash")
+        }.getOrDefault("/data/adb/clash/core/clash")
     }
 
     val scriptsPath by lazy {
         runCatching {
             if (paths[1] == "") throw Error() else paths[1]
-        }.getOrDefault( "/data/clash/scripts")
+        }.getOrDefault( "/data/adb/clash/scripts")
     }
 
     //val Subscribe by lazy {
@@ -57,7 +57,7 @@ object ClashConfig {
         get() = "${dataPath}/run/clash.pid"
 
     val configPath
-        get() = "${dataPath}/config.yaml"
+        get() = "${dataPath}/config/config.yaml"
 
     val extController by lazy {
         getExternalController()
@@ -181,5 +181,5 @@ object ClashConfig {
     private external fun getFromFile(path: String, nodes: Array<String>): String
     private external fun modifyFile(path: String, node: String, value: String)
 
-    private fun setConfig() = copyFile(dataPath, "config.yaml")
+    private fun setConfig() = copyFile(dataPath, "/config/config.yaml")
 }
